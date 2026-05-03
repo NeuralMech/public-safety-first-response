@@ -1,3 +1,10 @@
+## Development Note
+
+Parts of the implementation, refactoring, and notebook scaffolding in this repository were developed with the assistance of large language model (LLM) tools.
+
+The project direction, system architecture, safety logic, experiment design, and integration decisions were defined and reviewed by the author. All included code and notebooks were manually inspected and organized into a reproducible prototype repository.
+
+
 # Public Safety First Response System
 
 A prototype public-safety first-response system that links **smart CCTV-based early incident recognition** with **safety-aware drone response** in urban environments.
