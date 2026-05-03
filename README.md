@@ -1,4 +1,3 @@
-```markdown
 # Public Safety First Response System
 
 A prototype public-safety first-response system that links **smart CCTV-based early incident recognition** with **safety-aware drone response** in urban environments.
