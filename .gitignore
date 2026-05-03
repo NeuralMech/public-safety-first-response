@@ -1,0 +1,23 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Large data and training artifacts
+*/data/raw/
+*/data/processed/
+*/runs/
+*.pt
+*.onnx
+
+!*/data/raw/README.md
+!*/data/processed/.gitkeep
+!*/runs/.gitkeep
+
+# Local notebook outputs
+*.html
+*.png
+*.jpg
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
