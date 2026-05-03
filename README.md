@@ -1,46 +1,39 @@
-# Public Safety First Response
+# Public Safety First Response System
 
-This repository is structured around a **public-safety first-response system**, not a single drone-only project.
+A prototype public-safety first-response system that links **smart CCTV-based early incident recognition** with **safety-aware drone response** in urban environments.
 
-Top-level system flow:
+This project is not just a drone project. Its top-level goal is to support **early public-safety response** through the following workflow:
 
-1. Smart CCTV or an external report recognizes an early risk signal
-2. A human-in-the-loop operator reviews the event
-3. The drone system performs first-response support
-4. Internal drone safety modules reduce the chance of secondary harm
+1. Smart CCTV or a citizen report detects an early risk signal
+2. AI analyzes the signal and produces a dispatch recommendation
+3. A human operator makes the final launch decision
+4. A drone performs first response while minimizing secondary risk
 
-## Repository layout
+---
 
-- `cctv/`: early risk recognition using existing CCTV infrastructure
-- `drone/`: safe drone-based first-response execution
-- `docs/`: competition, poster, and system overview materials
-- `integration/`: future end-to-end orchestration layer between CCTV and drone response
-- `presentations/`: poster, slide, and figure assets
+## Overview
 
-## Working rule
+The system is organized into three layers:
 
-1. Keep Python source files in each module's `src/` directory as the source of truth.
-2. Treat notebooks in `notebooks/` as demo, validation, or Colab-facing artifacts.
-3. Treat `scripts/` as notebook generators or reproducibility helpers.
-4. Keep large raw datasets, trained weights, and run outputs out of Git when possible.
+- **Perception layer**: smart CCTV-based early risk recognition
+- **Decision-support layer**: temporal verification and human-in-the-loop dispatch recommendation
+- **Drone response layer**: safe route planning, anomaly detection, and emergency mitigation
 
-## Current scope
+The key design principle of the drone stack is **third-party harm minimization**, not aircraft preservation.  
+In other words, the system prioritizes:
 
-- CCTV:
-  - lightweight YOLO-based risk-object detection demo for `fire` and `knife`
-  - temporal verification and human-in-the-loop dispatch recommendation
-- Drone:
-  - route planning
-  - anomaly detection
-  - emergency mitigation stack
-- Integration:
-  - reserved for the higher-level public-safety orchestration layer
+**human safety > infrastructure safety > vehicle safety > payload**
 
-## GitHub note
+---
 
-This repository intentionally excludes large raw datasets and most training artifacts from version control.
-If you clone this repository, check each module README for expected local files under:
+## System Flow
 
-- `cctv/data/raw/`
-- `cctv/models/base/`
-- `drone/assets/`
+```mermaid
+flowchart LR
+    A["Risk event occurs"] --> B["Early recognition<br/>Smart CCTV or citizen report"]
+    B --> C["Situation assessment<br/>type, location, urgency"]
+    C --> D["Dispatch recommendation<br/>AI decision support"]
+    D --> E["Human approval"]
+    E --> F["Drone first response mission"]
+    F --> G["On-site observation / information relay"]
+    G --> H["Follow-up response<br/>police, fire department, control center"]
